@@ -26,18 +26,27 @@ function operate(a, b, operator) {
 			return add(a, b);
 		case '-':
 			return subtract(a, b);
-		case '*':
+		case '×':
 			return multiply(a, b);
-		case '/':
+		case '÷':
 			return divide(a, b);
 	}
 }
 
 function populateDisplay(e) {
 	const displayText = document.querySelector('#display');
-	displayText.textContent = e.srcElement.innerText;
-	const displayValue = parseInt(e.srcElement.innerText);
+	if (e.srcElement.className === 'number-button') {
+		displayText.textContent += e.srcElement.innerText;
+	} else if (e.srcElement.className === 'operator-button') {
+		firstOperand = parseInt(displayText.textContent);
+		operator = e.srcElement.innerText;
+		displayText.textContent = '';
+	} else if (e.srcElement.className === 'equals-button') {
+		secondOperand = parseInt(displayText.textContent);
+		displayText.textContent = operate(firstOperand, secondOperand, operator);
+	}
 }
 
-const numberButtons = document.querySelectorAll('.number-button');
-numberButtons.forEach(button => button.addEventListener('click', populateDisplay));
+const buttons = document.querySelectorAll('.number-button, .operator-button, \
+	.equals-button');
+buttons.forEach(button => button.addEventListener('click', populateDisplay));
