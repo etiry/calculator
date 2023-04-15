@@ -35,7 +35,9 @@ body {
 }
 
 .number-button,
-.operator-button {
+.operator-button,
+.decimal-button,
+.equals-button {
 	font-family: Helvetica, sans-serif;
 	font-size: 24px;
 }
@@ -65,9 +67,19 @@ body {
 }
 
 .operator-button {
-	width: 25%;
 	aspect-ratio: 1 / 1;
 	margin: 2px;
 	flex-basis: calc(25% - 4px);
 }
+
+.decimal-button {
+	aspect-ratio: 1 / 1;
+	margin: 2px;
+	flex-basis: calc(25% - 4px);
+}
+
+.equals-button {
+	aspect-ratio: 1 / 1;
+	margin: 2px;
+	flex-basis: calc(25% - 4px);
 }

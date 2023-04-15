@@ -32,3 +32,12 @@ function operate(a, b, operator) {
 			return divide(a, b);
 	}
 }
+
+function populateDisplay(e) {
+	const displayText = document.querySelector('#display');
+	displayText.textContent = e.srcElement.innerText;
+	const displayValue = parseInt(e.srcElement.innerText);
+}
+
+const numberButtons = document.querySelectorAll('.number-button');
+numberButtons.forEach(button => button.addEventListener('click', populateDisplay));
