@@ -62,6 +62,10 @@ function clearDisplay(e) {
 	displayText.textContent = '';
 }
 
+function backspace(e) {
+	displayText.textContent = (displayText.textContent).substring(0, displayText.textContent.length - 1);
+}
+
 const displayText = document.querySelector('#display');
 
 const buttons = document.querySelectorAll('.number-button, .operator-button, \
@@ -70,3 +74,6 @@ buttons.forEach(button => button.addEventListener('click', populateDisplay));
 
 const clearButton = document.querySelector('#clear-button');
 clearButton.addEventListener('click', clearDisplay);
+
+const backspaceButton = document.querySelector('#backspace-button');
+backspaceButton.addEventListener('click', backspace);
