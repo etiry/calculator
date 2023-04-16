@@ -43,14 +43,15 @@ function operate(a, b, operator) {
 
 function populateDisplay(e) {
 	//const displayText = document.querySelector('#display');
-	if (e.srcElement.className === 'number-button') {
+	if (e.srcElement.className === 'number-button' ||
+		e.srcElement.className === 'decimal-button') {
 		displayText.textContent += e.srcElement.innerText;
 	} else if (e.srcElement.className === 'operator-button') {
-		firstOperand = parseInt(displayText.textContent);
+		firstOperand = Number(displayText.textContent);
 		operator = e.srcElement.innerText;
 		displayText.textContent = '';
 	} else if (e.srcElement.className === 'equals-button') {
-		secondOperand = parseInt(displayText.textContent);
+		secondOperand = Number(displayText.textContent);
 		displayText.textContent = operate(firstOperand, secondOperand, operator);
 	}
 }
@@ -69,7 +70,7 @@ function backspace(e) {
 const displayText = document.querySelector('#display');
 
 const buttons = document.querySelectorAll('.number-button, .operator-button, \
-	.equals-button');
+	.equals-button, .decimal-button');
 buttons.forEach(button => button.addEventListener('click', populateDisplay));
 
 const clearButton = document.querySelector('#clear-button');
