@@ -42,7 +42,6 @@ function operate(a, b, operator) {
 }
 
 function populateDisplay(e) {
-	//const displayText = document.querySelector('#display');
 	if (e.srcElement.className === 'number-button' ||
 		e.srcElement.className === 'decimal-button') {
 		displayText.textContent += e.srcElement.innerText;
@@ -64,7 +63,8 @@ function clearDisplay(e) {
 }
 
 function backspace(e) {
-	displayText.textContent = (displayText.textContent).substring(0, displayText.textContent.length - 1);
+	displayText.textContent = (displayText.textContent)
+		.substring(0, displayText.textContent.length - 1);
 }
 
 const displayText = document.querySelector('#display');
